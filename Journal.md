@@ -29,15 +29,15 @@ and implement the algorithm through coding. As for today, I think a quick skim t
 ### 3. What Actually Happened
 
 # Definitions relating to graph  
-G =(V, E), where V = {v_1,...,v_n} is the vertex set and E is the edge set. E is a subset of E x E where (v_i,v_j) in E if there is an edge between v_i and v_j.  
+$G =(V, E)$, where $V = \{v_1,...,v_n\}$ is the vertex set and $E$ is the edge set. $E$ is a subset of $E \times E$ where $(v_i,v_j) \in E$ if there is an edge between $v_i$ and $v_j$.  
 # Adjacency matrix  
-One can use the adjacency matrix A = (a_ij) to represent a graph. a_ij = w if (v_i, v_j) in E and w is the weight on the graph, and 0 otherwise.  
-- Note that (v_i,v_j) and (v_j,v_i) can have different weights if G is directed.
-- If G is unweighted, then all weights are 1 on the edges. 
-- If G is undirected, the adjacency matrix is symmetric
+One can use the adjacency matrix $A = (a_{ij})$ to represent a graph. $a_{ij} = w $ if $(v_i, v_j) \in E$ and $w$ is the weight on the graph, and $0$ otherwise.  
+- Note that $(v_i,v_j)$ and $(v_j,v_i)$ can have different weights if $G$ is directed.
+- If $G$ is unweighted, then all weights are $1$ on the edges. 
+- If $G$ is undirected, the adjacency matrix is symmetric
 # Adjacency list
-- The common solution one uses to represent a graph is to use an adjacency list. Roughly, for each vertex, it associates its adjacency data. The next step for me is to figure out exactly how to
-represent this data structure in python.
+- The common solution one uses to represent a graph is to use an adjacency list. Roughly, it associates adjacency data with each vertex. The next step for me is to figure out exactly how to
+represent this data structure in Python.
 ---
 
 ### 4. Confusion Log
@@ -144,4 +144,5 @@ Define the next concrete action.
 ### What still feels like “dark forest”?
 
 ---
+
 
