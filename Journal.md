@@ -4,33 +4,86 @@
 
 ## Entry
 
-**Date:**  
-**Stage / Topic:**  
-**Time Spent:**  
+**Date: 01/03/2026**  
+**Stage / Topic: 0**  
+**Time Spent: 1 hr**  
 **Energy Level (1–5):**  
 
 ---
 
 ### 1. Objective Today
 
-What specific task am I attempting?
+Today, I am going to understand the scope of the problem. This
+will include basic definitions of graphs (directed/undirected and weighted/unweighted) and the adjacency matrix. Hopefully, I can get some ideas for defining the graph class.
 
 ---
 
 ### 2. Expectations Before Starting
 
-What do I think will happen?
-What do I believe I understand?
+I had encountered graphs, BFS, and Dijkstra's algorithm in a discrete maths class before.  It was a while back. But I do have
+a vague impression of what the problem is about. However, it was purely mathematical. I have no clue how to represent the data structure
+and implement the algorithm through coding. As for today, I think a quick skim through Wikipedia or some lecture notes would help me to refresh the basics
 
 ---
 
 ### 3. What Actually Happened
 
-Describe the process honestly.
+# Definitions relating to graph  
+G =(V, E), where V = {v_1,...,v_n} is the vertex set and E is the edge set. E is a subset of E x E where (v_i,v_j) in E if there is an edge between v_i and v_j.  
+# Adjacency matrix  
+One can use the adjacency matrix A = (a_ij) to represent a graph. a_ij = w if (v_i, v_j) in E and w is the weight on the graph, and 0 otherwise.  
+- Note that (v_i,v_j) and (v_j,v_i) can have different weights if G is directed.
+- If G is unweighted, then all weights are 1 on the edges. 
+- If G is undirected, the adjacency matrix is symmetric
+# Adjacency list
+- The common solution one uses to represent a graph is to use an adjacency list. Roughly, for each vertex, it associates its adjacency data. The next step for me is to figure out exactly how to
+represent this data structure in python.
+---
 
-- What worked?
-- What failed?
-- What confused me?
+### 4. Confusion Log
+None for today
+
+---
+
+### 5. Breakthrough (if any)
+
+---
+
+### 6. Code Reflection
+There is no coding done today.
+
+---
+
+### 7. Smallest Next Step
+Find out how to define adjacency lists.
+
+---
+
+---
+## Entry
+
+**Date: **  
+**Stage / Topic: **  
+**Time Spent: **  
+**Energy Level (1–5):**  
+
+---
+
+### 1. Objective Today
+
+
+
+---
+
+### 2. Expectations Before Starting
+
+ 
+
+---
+
+### 3. What Actually Happened
+
+
 
 ---
 
@@ -52,11 +105,7 @@ What invariant or structure became clearer?
 ---
 
 ### 6. Code Reflection
-
-- Is the structure clean?
-- Any duplication?
-- Are edge cases handled?
-- Can I explain every line?
+There is no coding done today.
 
 ---
 
@@ -95,3 +144,4 @@ Define the next concrete action.
 ### What still feels like “dark forest”?
 
 ---
+
