@@ -1,3 +1,9 @@
+class Node:
+    def __init__(self, value):
+        self.vertex = value
+        self.next = None
+   
+
 class Graph:
     def __init__(self, directed=False, weighted=False):
         self.directed = directed
