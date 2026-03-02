@@ -62,62 +62,49 @@ Find out how to define adjacency lists.
 ---
 ## Entry
 
-**Date: **  
-**Stage / Topic: **  
-**Time Spent: **  
+**Date: 02/03/2026**  
+**Stage / Topic: 1 **  
+**Time Spent: 30 mins **  
 **Energy Level (1–5):**  
 
 ---
 
 ### 1. Objective Today
-
-
+- Figure out how to use an adjacency list to represent a graph
+- Define Graph class 
 
 ---
 
 ### 2. Expectations Before Starting
-
+Not aiming for anything heavy today, should be a light but solid small step.
  
 
 ---
 
 ### 3. What Actually Happened
-
+- Defined Graph class and add_edge method
+- Basically, it is a dictionary with values that are a list of tuples. Each key is a vertex, and the list of tuples specifies the adjacent vertices and the weights of the connecting edges.
+- Initially thought to distinguish between weighted/unweighted (for the input, includes a weighted = True/False parameter), but figured out it is not needed since we can just give weight 1 in the unweighted case.
 
 
 ---
 
 ### 4. Confusion Log
-
-List precise questions:
-
-- 
-- 
-- 
+- I would like to integrate the use of linked lists learned in 6.006. However, it seems that using a dictionary is enough for now.
 
 ---
 
 ### 5. Breakthrough (if any)
 
-Did something click?
-What invariant or structure became clearer?
-
----
 
 ### 6. Code Reflection
-There is no coding done today.
+Only defined the class and a method today
 
 ---
 
-### 7. Conceptual Learning
+### 7. Smallest Next Step
 
-What algorithmic idea became clearer?
-
----
-
-### 8. Smallest Next Step
-
-Define the next concrete action.
+Figure out what BFS is
 
 ---
 
@@ -144,6 +131,7 @@ Define the next concrete action.
 ### What still feels like “dark forest”?
 
 ---
+
 
 
 
