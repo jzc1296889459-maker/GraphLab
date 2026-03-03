@@ -109,7 +109,51 @@ Figure out what BFS is
 ---
 
 ---
+## Entry
 
+**Date: 03/03/2026**  
+**Stage / Topic: 1 **  
+**Time Spent: 30 mins **  
+**Energy Level (1–5):**  
+
+---
+
+### 1. Objective Today
+
+---
+
+### 2. Expectations Before Starting
+
+ 
+
+---
+
+### 3. What Actually Happened
+
+
+
+---
+
+### 4. Confusion Log
+
+
+---
+
+### 5. Breakthrough (if any)
+
+
+### 6. Code Reflection
+
+
+---
+
+### 7. Smallest Next Step
+
+
+
+---
+
+---
 # Weekly Reflection (Every 7 Days)
 
 ### What improved this week?
