@@ -1,31 +1,25 @@
 class Node:
-    def __init__(self, value):
-        self.vertex = value
-        self.next = None
+    def __init__(self, key):
+        self.key = key
+        self.neighbors = {}
+
+    def add_neighbor(self, node, weight=1):
+        self.neighbors[node] = weight
    
 
 class Graph:
-    def __init__(self, directed=False, weighted=False):
-        self.directed = directed
-        self.weighted = weighted
-        self.adj = {}
-    
+    def __init__(self):
+        self.nodes = {}
+
+    def add_node(self, key):
+        if key not in self.nodes:
+            self.nodes[key] = Node(key)
+
     def add_edge(self, u, v, weight=1):
-        if u not in self.adj:
-            self.adj[u] = []
-        if v not in self.adj:
-            self.adj[v] = []
+        self.add_node(u)
+        self.add_node(v)
 
-        if self.weighted:
-            self.adj[u].append((v, weight))
-        else:
-            self.adj[u].append(v)
-
-        if not self.directed:
-            if self.weighted:
-                self.adj[v].append((u, weight))
-            else:
-                self.adj[v].append(u)
+        self.nodes[u].add_neighbor(self.nodes[v], weight)
                 
 
        
