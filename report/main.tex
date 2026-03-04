@@ -1,0 +1,253 @@
+\documentclass[11pt]{article}
+
+% ------------------------------------------------
+% Packages
+% ------------------------------------------------
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{geometry}
+
+\geometry{margin=1in}
+
+% ------------------------------------------------
+% Title Info
+% ------------------------------------------------
+\title{GraphLab: Graph Representation and Shortest Path Algorithms}
+\author{Your Name}
+\date{\today}
+
+% ------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This report documents the design and implementation of GraphLab, a small
+Python framework for experimenting with graph data structures and algorithms.
+We describe the chosen graph representation, analyze its complexity, and
+implement fundamental algorithms including Breadth First Search and Dijkstra's
+algorithm for shortest paths. The goal is to connect theoretical algorithmic
+guarantees with practical implementation considerations.
+\end{abstract}
+
+% ------------------------------------------------
+\section{Introduction}
+
+Graphs are fundamental structures for modeling relationships between objects.
+Applications range from networking and routing to machine learning and
+optimization. Efficient graph algorithms require careful choices in data
+representation and algorithm design.
+
+The goal of GraphLab is to build a lightweight Python framework that supports
+
+\begin{itemize}
+\item graph construction
+\item traversal algorithms
+\item shortest path computation
+\item experimentation with algorithmic performance
+\end{itemize}
+
+This report focuses on the implementation of core algorithms and their
+computational properties.
+
+% ------------------------------------------------
+\section{Graph Representation}
+
+\subsection{Adjacency List Structure}
+
+The graph is represented using an adjacency list structure. Formally, for a
+graph $G = (V,E)$, the adjacency list stores for each vertex $u \in V$ a list
+of neighbors
+
+\[
+Adj[u] = \{v : (u,v) \in E\}.
+\]
+
+In the Python implementation, the adjacency list is implemented using a
+dictionary mapping vertices to their neighbors.
+
+\begin{lstlisting}[language=Python]
+self.adj = {
+    'A': {'B': 3, 'C': 1},
+    'B': {'D': 2},
+    'C': {}
+}
+\end{lstlisting}
+
+This representation allows constant-time access to the neighbors of any
+vertex.
+
+\subsection{Directed and Weighted Edges}
+
+Edges may optionally carry weights. A weighted edge is stored as
+
+\[
+Adj[u][v] = w
+\]
+
+where $w$ represents the edge weight.
+
+% ------------------------------------------------
+\section{Breadth First Search}
+
+Breadth First Search (BFS) explores vertices in increasing distance from a
+source node.
+
+\subsection{Algorithm Description}
+
+Starting from a source vertex $s$, BFS uses a queue to explore vertices layer
+by layer.
+
+\begin{itemize}
+\item Initialize the queue with $s$
+\item Mark $s$ as visited
+\item Repeatedly dequeue vertices and explore their neighbors
+\end{itemize}
+
+\subsection{Correctness Intuition}
+
+BFS discovers vertices in order of increasing distance from the source.
+Therefore the first time a vertex is visited corresponds to the shortest path
+in an unweighted graph.
+
+\subsection{Complexity}
+
+For a graph with $n = |V|$ vertices and $m = |E|$ edges:
+
+\[
+\text{BFS runtime} = O(n + m).
+\]
+
+Each vertex is processed once and each edge is examined once.
+
+% ------------------------------------------------
+\section{Shortest Paths in Unweighted Graphs}
+
+BFS naturally computes shortest paths in unweighted graphs.
+
+\subsection{Parent Pointer Structure}
+
+During BFS, each vertex stores a parent pointer
+
+\[
+parent[v]
+\]
+
+representing the previous vertex in the shortest path tree.
+
+\subsection{Path Reconstruction}
+
+The shortest path from $s$ to a target vertex $t$ can be reconstructed by
+traversing the parent pointers backwards:
+
+\[
+t \rightarrow parent[t] \rightarrow parent[parent[t]] \rightarrow \dots
+\]
+
+until the source vertex is reached.
+
+% ------------------------------------------------
+\section{Dijkstra's Algorithm}
+
+For weighted graphs with nonnegative edge weights, shortest paths are computed
+using Dijkstra's algorithm.
+
+\subsection{Algorithm Idea}
+
+Dijkstra's algorithm maintains a priority queue of vertices ordered by their
+current distance estimate.
+
+At each step:
+
+\begin{enumerate}
+\item Extract the vertex with minimum distance
+\item Relax its outgoing edges
+\item Update distances in the priority queue
+\end{enumerate}
+
+\subsection{Relaxation Step}
+
+For an edge $(u,v)$ with weight $w$,
+
+\[
+dist[v] = \min(dist[v], dist[u] + w).
+\]
+
+\subsection{Complexity}
+
+Using a binary heap priority queue:
+
+\[
+O(m \log n)
+\]
+
+where
+
+\begin{itemize}
+\item $n$ = number of vertices
+\item $m$ = number of edges
+\end{itemize}
+
+% ------------------------------------------------
+\section{Experimental Observations}
+
+To validate the implementation, several small experiments were performed.
+
+\subsection{Test Graphs}
+
+Example graphs used for testing include
+
+\begin{itemize}
+\item small hand-constructed graphs
+\item random graphs with varying density
+\end{itemize}
+
+\subsection{Observed Behavior}
+
+Insert observations here once experiments are run.
+
+Possible topics:
+
+\begin{itemize}
+\item BFS runtime scaling
+\item Dijkstra performance on dense vs sparse graphs
+\item memory usage
+\end{itemize}
+
+% ------------------------------------------------
+\section{Discussion}
+
+This project illustrates how theoretical algorithmic results translate into
+practical implementations.
+
+Key observations include:
+
+\begin{itemize}
+\item adjacency lists provide efficient sparse graph representation
+\item BFS naturally produces shortest paths in unweighted graphs
+\item Dijkstra generalizes this idea to weighted graphs
+\end{itemize}
+
+Future extensions of GraphLab could include
+
+\begin{itemize}
+\item A* search
+\item minimum spanning tree algorithms
+\item graph visualization tools
+\end{itemize}
+
+% ------------------------------------------------
+\section{Conclusion}
+
+GraphLab provides a simple environment for experimenting with fundamental graph
+algorithms. The project highlights the relationship between theoretical
+analysis and practical implementation choices.
+
+Further work will explore additional graph algorithms and larger-scale
+experiments.
+
+% ------------------------------------------------
+\end{document}
